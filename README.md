@@ -1,4 +1,5 @@
-# React Native AR Viewer
+# React Native AR Viewer (fixed)
+
 [![npm version](https://img.shields.io/npm/v/react-native-ar-viewer.svg)](https://www.npmjs.com/package/react-native-ar-viewer)
 
 AR viewer for react native that uses Sceneform on Android and ARKit on iOS
@@ -10,6 +11,7 @@ npm install react-native-ar-viewer
 ```
 
 ### Android
+
 Required AR features:
 
 - Add `com.google.ar.core` meta data to your `AndroidManifest.xml` as follows:
@@ -28,12 +30,13 @@ Required AR features:
 - Check that your `<manifest>` tag contains `xmlns:tools="http://schemas.android.com/tools"` attribute.
 
 ### iOS
-- Remember to add `NSCameraUsageDescription` entry in your Info.plist with a text explaining why you request camera permission.
 
+- Remember to add `NSCameraUsageDescription` entry in your Info.plist with a text explaining why you request camera permission.
 - In XCode file tree, go to Pods > Development pods > react-native-ar-viewer, right-click on "Add Files to Pods"... Then select the environment.skybox folder in your node_modules/react-native-ar-viewer/ios folder. In add file window, check "react-native-ar-viewer-ARViewerBundle". It should appear with a blue icon on the file tree. Check if res.hdr is present inside, if not, add it manually. It should look like that:
-![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/mac-bundle-tree.png)
+  ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/mac-bundle-tree.png)
 
 ## File formats
+
 The viewer only supports `USDZ` files for iOS and `GLB` for Android. Other formats may work, but are not officialy supported.
 
 ## Usage
@@ -63,45 +66,45 @@ import { Platform } from 'react-native';
 
 ### Props
 
-| Prop | Type | Description | Required |
-|---|---|---|---|
-| `model`| `string` | Enables ambient light estimation (see below) | Yes |
-| `lightEstimation`| `bool` | Enables ambient light estimation (see below) | No |
-| `manageDepth` | `bool` | Enables depth estimation and occlusion (only iOS, see below) | No |
-| `allowRotate` | `bool` | Allows to rotate model | No |
-| `allowScale` | `bool` | Allows to scale model | No |
-| `allowTranslate` | `bool` | Allows to translate model | No |
-| `disableInstructions` | `bool` | Disables instructions view | No |
-| `disableInstantPlacement` | `bool` | Disables placement on load | No |
-| `planeOrientation` | `"horizontal"`, `"vertical"`, `"both"` or `"none"` | Sets plane orientation (default: `both`) | No |
+| Prop                        | Type                                                       | Description                                                  | Required |
+| --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| `model`                   | `string`                                                 | Enables ambient light estimation (see below)                 | Yes      |
+| `lightEstimation`         | `bool`                                                   | Enables ambient light estimation (see below)                 | No       |
+| `manageDepth`             | `bool`                                                   | Enables depth estimation and occlusion (only iOS, see below) | No       |
+| `allowRotate`             | `bool`                                                   | Allows to rotate model                                       | No       |
+| `allowScale`              | `bool`                                                   | Allows to scale model                                        | No       |
+| `allowTranslate`          | `bool`                                                   | Allows to translate model                                    | No       |
+| `disableInstructions`     | `bool`                                                   | Disables instructions view                                   | No       |
+| `disableInstantPlacement` | `bool`                                                   | Disables placement on load                                   | No       |
+| `planeOrientation`        | `"horizontal"`, `"vertical"`, `"both"` or `"none"` | Sets plane orientation (default:`both`)                    | No       |
 
 #### lightEstimation:
 
-| With | Without |
-|---|---|
-|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/light.jpg)|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/no-light.jpg)|
+| With                                                                              | Without                                                                              |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/light.jpg) | ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/no-light.jpg) |
 
 #### manageDepth:
 
-| With | Without |
-|---|---|
-|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/depth.jpg)|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/no-depth.jpg)|
+| With                                                                              | Without                                                                              |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/depth.jpg) | ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/no-depth.jpg) |
 
 #### Others:
 
-| allowRotate | allowScale | planeOrientation: both |
-|---|---|---|
-|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/rotate.gif)|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/scale.gif)|![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/planeOrientation.gif)|
+| allowRotate                                                                        | allowScale                                                                        | planeOrientation: both                                                                       |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/rotate.gif) | ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/scale.gif) | ![](https://raw.githubusercontent.com/riderodd/react-native-ar/main/docs/planeOrientation.gif) |
 
 ### Events
 
-| Prop | Parameter | Description |
-|---|---|---|
-| `onStarted` | `none` | Triggers on AR session started |
-| `onEnded` | `none` | Triggers on AR session ended |
-| `onModelPlaced` | `none` | Triggers when model is placed |
-| `onModelRemoved` | `none` | Triggers when model is removed |
-| `onError` | `{ message: string }` | Triggers on any error and returns an object containing the error message |
+| Prop               | Parameter               | Description                                                              |
+| ------------------ | ----------------------- | ------------------------------------------------------------------------ |
+| `onStarted`      | `none`                | Triggers on AR session started                                           |
+| `onEnded`        | `none`                | Triggers on AR session ended                                             |
+| `onModelPlaced`  | `none`                | Triggers when model is placed                                            |
+| `onModelRemoved` | `none`                | Triggers when model is removed                                           |
+| `onError`        | `{ message: string }` | Triggers on any error and returns an object containing the error message |
 
 ### Commands
 
@@ -123,11 +126,11 @@ Commands are sent using refs like the following example:
   // ...
 ```
 
-| Command | Args | Return | Description |
-|---|---|---|---|
-| `reset()` | `none` | `void` | Removes model from plane |
-| `rotate()` | `x, y, z` | `void` | Manually rotates the model using `yaw as x`, `pitch as y` and `roll as z` in degrees |
-| `takeScreenshot()` | `none` | `Promise<String>` | Takes a screenshot of the current view (camera + model) and returns a base64 jpeg string as a promise |
+| Command              | Args        | Return              | Description                                                                                           |
+| -------------------- | ----------- | ------------------- | ----------------------------------------------------------------------------------------------------- |
+| `reset()`          | `none`    | `void`            | Removes model from plane                                                                              |
+| `rotate()`         | `x, y, z` | `void`            | Manually rotates the model using `yaw as x`, `pitch as y` and `roll as z` in degrees            |
+| `takeScreenshot()` | `none`    | `Promise<String>` | Takes a screenshot of the current view (camera + model) and returns a base64 jpeg string as a promise |
 
 ## Contributing
 

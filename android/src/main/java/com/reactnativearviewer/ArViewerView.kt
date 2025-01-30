@@ -210,6 +210,8 @@ class ArViewerView @JvmOverloads constructor(
     }
   }
 
+  // private var isStartedEventEmitted = false
+
   /**
    * Initializes the ARCore session. The CAMERA permission is checked before checking the
    * installation state of ARCore. Once the permissions and installation are OK, the method
@@ -233,11 +235,14 @@ class ArViewerView @JvmOverloads constructor(
         Log.d("ARview session", "started")
         val event = Arguments.createMap()
         val reactContext = context as ThemedReactContext
-        reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
-          id,
-          "onStarted",
-          event
-        )
+        // reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
+        //   id,
+        //   "onStarted",
+        //   event
+        // )
+
+        // isStartedEventEmitted = true
+
 
         return
       } catch (e: UnavailableException) {
