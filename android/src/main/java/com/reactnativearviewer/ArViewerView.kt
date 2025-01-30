@@ -378,11 +378,11 @@ class ArViewerView @JvmOverloads constructor(
   private fun onModelPlaced() {
     val event = Arguments.createMap()
     val reactContext = context as ThemedReactContext
-    reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
-      id,
-      "onModelPlaced",
-      event
-    )
+    // reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
+    //   id,
+    //   "onModelPlaced",
+    //   event
+    // )
   }
 
   /**
@@ -510,11 +510,11 @@ class ArViewerView @JvmOverloads constructor(
         modelNode = null
         val event = Arguments.createMap()
         val reactContext = context as ThemedReactContext
-        reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
-          id,
-          "onModelRemoved",
-          event
-        )
+        // reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
+        //   id,
+        //   "onModelRemoved",
+        //   event
+        // )
       }
       Log.d("ARview model", "loading")
       modelSrc = src
@@ -638,11 +638,11 @@ class ArViewerView @JvmOverloads constructor(
     event.putString("result", result)
     event.putString("error", error)
     val reactContext = context as ThemedReactContext
-    reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
-      id,
-      "onDataReturned",
-      event
-    )
+    // reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
+    //   id,
+    //   "onDataReturned",
+    //   event
+    // )
   }
 
   /**
@@ -652,11 +652,11 @@ class ArViewerView @JvmOverloads constructor(
     val event = Arguments.createMap()
     event.putString("message", message)
     val reactContext = context as ThemedReactContext
-    reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
-      id,
-      "onError",
-      event
-    )
+    // reactContext.getJSModule(RCTEventEmitter::class.java).receiveEvent(
+    //   id,
+    //   "onError",
+    //   event
+    // )
   }
 
   /**
