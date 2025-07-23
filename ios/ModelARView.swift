@@ -74,7 +74,8 @@ class ModelARView: ARView, ARSessionDelegate {
         let resourceBundle = Bundle(url: bundleURL!)
         
         do {
-            let skyboxResource = try EnvironmentResource.load(named: "ref", in: resourceBundle)
+            let skyboxResource = try EnvironmentResource.load(named: "environment", in: resourceBundle)
+
             environment.lighting.resource = skyboxResource
         } catch {
             let message = "Cannot load environment texture, please check installation guide. Models may appear darker than expected."
